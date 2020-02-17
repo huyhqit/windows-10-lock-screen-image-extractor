@@ -61,13 +61,11 @@ jobs:
         with:
           name: code-coverage
           path: coverage
-      - name: Download code coverage
-        uses: actions/download-artifact@v1
-        with:
-          name: code-coverage
-          path: coverage
+      - name: Deploy code coverage
       - run: |
-          cat coverage
+          yarn global add surge
+          surge -p coverage/lcov-report --domain sharp-brake.surge.sh
+        shell: cmd
       - name: Build exe file
         run: yarn run build:win
         shell: cmd
