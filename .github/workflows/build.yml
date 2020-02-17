@@ -64,7 +64,7 @@ jobs:
       - name: Deploy code coverage
         run: |
           yarn global add surge
-          surge -p coverage/lcov-report --domain sharp-brake.surge.sh
+          surge -p coverage/lcov-report --domain greasy-slope.surge.sh
         shell: cmd
       - name: Build exe file
         run: yarn run build:win
