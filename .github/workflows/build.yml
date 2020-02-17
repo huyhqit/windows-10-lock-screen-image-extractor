@@ -61,8 +61,9 @@ jobs:
         with:
           name: code-coverage
           path: coverage
-      - run: yarn global add surge
-      - run: surge -p coverage/lcov-report/ --domain='smoggy-daughter.surge.sh' --token=${{ secrets.SURGE_TOKEN }}
+      - run: |
+          yarn global add surge && surge coverage/lcov-report/ --domain='smoggy-daughter.surge.sh' --token=${{ secrets.SURGE_TOKEN }}
+        shell: cmd
       - name: Build exe file
         run: yarn run build:win
         shell: cmd
