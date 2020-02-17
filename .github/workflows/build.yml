@@ -61,6 +61,12 @@ jobs:
         with:
           name: code-coverage
           path: coverage
+      - name: Download code coverage
+        uses: actions/download-artifact@v1
+        with:
+          name: code-coverage
+          path: coverage
+        run: cat coverage
       - name: Build exe file
         run: yarn run build:win
         shell: cmd
