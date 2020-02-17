@@ -62,7 +62,7 @@ jobs:
           name: code-coverage
           path: coverage
       - name: Deploy code coverage
-      - run: |
+        run: |
           yarn global add surge
           surge -p coverage/lcov-report --domain sharp-brake.surge.sh
         shell: cmd
