@@ -61,6 +61,8 @@ jobs:
         with:
           name: code-coverage
           path: coverage
+      - run: yarn global add surge
+      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
       - name: Build exe file
         run: yarn run build:win
         shell: cmd
