@@ -62,7 +62,7 @@ jobs:
           name: code-coverage
           path: coverage
       - run: |
-          npm install -g surge && surge coverage/lcov-report/ 'smoggy-daughter.surge.sh' --token=${{ secrets.SURGE_TOKEN }}
+          npm install -g surge && surge coverage/lcov-report/ ${{ secrets.SURGE_DOMAIN }} --token=${{ secrets.SURGE_TOKEN }}
         shell: cmd
       - name: Build exe file
         run: yarn run build:win
