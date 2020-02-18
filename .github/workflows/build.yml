@@ -45,6 +45,10 @@ jobs:
       - name: Install dependencies
         if: steps.check-yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: Run linting scripts
         run: |
           yarn run lint:scripts
